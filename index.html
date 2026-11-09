@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Up Day</title>
+<meta name="description" content="A free day of real talk about mental health. Come hang out, try stuff, and find out who can help.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#25235f; --blue:#3b5bff; --sky:#bfe3ff; --yellow:#ffd23f; --pink:#ff8fb8;
+  --green:#38c98c; --orange:#ff7a3d; --cream:#fff9ee; --ink:#1a1840;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Nunito","Arial Rounded MT Bold","Trebuchet MS",sans-serif;font-size:18px;line-height:1.55;color:var(--ink);background:var(--cream)}
+a{color:inherit}
+.w{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* top strip + nav */
+.strip{background:var(--yellow);font-weight:800;font-size:.95rem;text-align:center;padding:8px 12px}
+.strip a{text-decoration:underline}
+nav.top{background:#fff;border-bottom:3px solid var(--navy)}
+nav.top .w{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-weight:900;font-size:1.6rem;text-decoration:none;color:var(--navy);letter-spacing:-.03em}
+.logo i{font-style:normal;color:var(--blue)}
+nav.top ul{list-style:none;display:flex;gap:26px;padding:0;align-items:center}
+nav.top ul a{text-decoration:none;font-weight:800;font-size:1rem}
+nav.top ul a:hover{color:var(--blue)}
+.btn{display:inline-block;font:inherit;font-weight:900;text-decoration:none;border:3px solid var(--navy);background:var(--yellow);color:var(--navy);padding:12px 24px;border-radius:999px;cursor:pointer;box-shadow:4px 4px 0 var(--navy);transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--navy)}
+.btn.sm{padding:8px 18px;font-size:.95rem;background:var(--pink)}
+.btn.white{background:#fff}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding-top:70px;padding-bottom:80px}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:.98;font-weight:900;letter-spacing:-.035em}
+.hero h1 u{text-decoration:none;color:var(--yellow)}
+.hero p{font-size:1.3rem;margin:22px 0 30px;max-width:30em;color:#dcdcff}
+.art{position:relative;height:380px}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.sticker{position:absolute;right:6%;bottom:2%;background:var(--yellow);color:var(--navy);border:3px solid #fff;border-radius:50%;width:170px;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:900;line-height:1.05;transform:rotate(-9deg)}
+.sticker b{font-size:2.4rem;display:block}
+.sticker span{font-size:.95rem;font-weight:800}
+
+/* info strip */
+.info{background:var(--yellow);border-bottom:3px solid var(--navy)}
+.info .w{display:grid;grid-template-columns:repeat(3,1fr)}
+.info div.c{padding:22px 24px;border-right:3px solid var(--navy)}
+.info div.c:last-child{border:0}
+.info small{display:block;font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.75rem}
+.info strong{font-size:1.35rem;font-weight:900;line-height:1.2;display:block}
+
+section{padding:80px 0}
+h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:14px}
+.intro{max-width:34em;margin-bottom:38px;font-size:1.15rem}
+
+/* about */
+.about .w{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about p+p{margin-top:14px}
+.big{font-size:1.9rem;font-weight:900;line-height:1.15;color:var(--blue)}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.tile{border:3px solid var(--navy);border-radius:26px;padding:26px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;grid-column:span 2;position:relative;overflow:hidden}
+.tile.wide{grid-column:span 3}
+.tile h3{font-size:1.7rem;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:8px}
+.tile p{font-size:1rem;font-weight:600;max-width:20em}
+.tile svg{position:absolute;right:-14px;top:-14px;width:110px;opacity:.9}
+.t1{background:var(--sky)}.t2{background:var(--pink)}.t3{background:var(--green)}
+.t4{background:var(--orange);color:#fff}.t5{background:var(--yellow)}.t6{background:var(--blue);color:#fff}
+
+/* myths */
+.myths{background:#fff;border-top:3px solid var(--navy);border-bottom:3px solid var(--navy)}
+.myth{display:grid;grid-template-columns:1fr 1fr;border:3px solid var(--navy);border-radius:22px;overflow:hidden;margin-bottom:16px}
+.myth div{padding:22px 26px}
+.myth .m{background:#ffe3e3}
+.myth .r{background:#dcf7e9}
+.myth small{font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.75rem;display:block;margin-bottom:4px}
+.myth b{font-size:1.2rem;line-height:1.25;font-weight:800}
+
+/* schedule */
+.sched .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+.row{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:3px dotted var(--navy);align-items:baseline}
+.row:first-child{border-top:3px dotted var(--navy)}
+.row time{font-weight:900;font-size:1.4rem;color:var(--blue)}
+.row span{font-weight:700}
+
+/* help */
+.help{background:var(--pink);border-top:3px solid var(--navy);border-bottom:3px solid var(--navy)}
+.help .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.num{font-size:clamp(3.4rem,9vw,6.4rem);font-weight:900;line-height:.9;letter-spacing:-.04em;color:var(--navy)}
+.help ul{list-style:none;padding:0}
+.help li{padding:12px 0;border-bottom:3px solid var(--navy);font-weight:700}
+.help li:last-child{border:0}
+
+/* rsvp */
+.rsvp{background:var(--sky)}
+.rsvp .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
+form{background:#fff;border:3px solid var(--navy);border-radius:26px;padding:30px;box-shadow:8px 8px 0 var(--navy);display:grid;gap:16px}
+label{font-weight:900;font-size:.95rem;display:block;margin-bottom:5px}
+input,select{width:100%;font:inherit;font-weight:600;padding:12px 14px;border:3px solid var(--navy);border-radius:14px;background:var(--cream)}
+input:focus,select:focus{outline:4px solid var(--yellow)}
+.ok{display:none;font-weight:800;background:var(--green);border:3px solid var(--navy);border-radius:14px;padding:14px}
+
+footer{background:var(--navy);color:#cfcfff;padding:46px 0;font-size:.95rem}
+footer .logo{color:#fff;display:inline-block;margin-bottom:10px}
+footer a{color:var(--yellow)}
+.todo{background:#fff2a8;color:var(--ink);padding:0 5px;border-radius:5px}
+
+@media(max-width:800px){
+  nav.top ul li:not(:last-child){display:none}
+  .hero .w,.about .w,.sched .w,.help .w,.rsvp .w{grid-template-columns:1fr}
+  .art{height:260px}
+  .info .w{grid-template-columns:1fr}
+  .info div.c{border-right:0;border-bottom:3px solid var(--navy)}
+  .tile,.tile.wide{grid-column:span 6;min-height:190px}
+  .myth{grid-template-columns:1fr}
+  .row{grid-template-columns:100px 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">In a tough spot right now? Call or text <a href="tel:988">988</a>, anytime.</div>
+
+<nav class="top">
+  <div class="w">
+    <a class="logo" href="#">open up<i>day</i></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#whats-on">What's on</a></li>
+      <li><a href="#day">The day</a></li>
+      <li><a href="#help">Get help</a></li>
+      <li><a class="btn sm" href="#rsvp">I'm in</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="w">
+    <div>
+      <h1>Real talk about <u>mental health.</u></h1>
+      <p>One free day to hang out, try some stuff that actually helps, and find out who's around when things get heavy. No pressure, no awkward speeches.</p>
+      <a class="btn" href="#rsvp">Count me in</a>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 400 380">
+        <circle cx="210" cy="170" r="150" fill="#3b5bff"/>
+        <path d="M30 300 Q 90 200 170 260 T 330 230 L 380 380 L 20 380Z" fill="#38c98c" stroke="#fff" stroke-width="4"/>
+        <circle cx="300" cy="80" r="46" fill="#ff8fb8" stroke="#fff" stroke-width="4"/>
+        <path d="M60 90 q 20 -30 40 0 t 40 0 t 40 0" fill="none" stroke="#ffd23f" stroke-width="10" stroke-linecap="round"/>
+        <rect x="120" y="150" width="120" height="70" rx="26" fill="#fff"/>
+        <path d="M150 220 l -4 32 l 34 -32z" fill="#fff"/>
+        <circle cx="152" cy="185" r="7" fill="#25235f"/><circle cx="180" cy="185" r="7" fill="#25235f"/><circle cx="208" cy="185" r="7" fill="#25235f"/>
+      </svg>
+      <div class="sticker"><span>FREE</span><b>Sat.</b><span class="todo">[date]</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="info">
+  <div class="w">
+    <div class="c"><small>When</small><strong><span class="todo">Saturday [date]</span><br>11am to 3pm</strong></div>
+    <div class="c"><small>Where</small><strong class="todo">[Venue name + address]</strong></div>
+    <div class="c"><small>Cost</small><strong>Nothing. Just turn up.</strong></div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="w">
+    <div>
+      <h2>Why bother?</h2>
+      <p class="big">Loads of people are going through stuff and not saying anything.</p>
+    </div>
+    <div>
+      <p>Mostly because they think everyone else has it figured out. They don't.</p>
+      <p>Open Up Day is our way of making it normal to talk about it. You can learn a few ways to deal with stress, meet the people who do this for a living (they're nice), and see that you're not the only one.</p>
+      <p>It's for teens and young adults, around 14 to 25. Parents, teachers and coaches are welcome too. Bring a friend if that makes it easier.</p>
+    </div>
+  </div>
+</section>
+
+<section id="whats-on" style="padding-top:0">
+  <div class="w">
+    <h2>What's on</h2>
+    <p class="intro">Wander around, stay an hour or stay all day. Nobody's going to make you share anything.</p>
+    <div class="tiles">
+      <a class="tile t1 wide" style="text-decoration:none">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#fff" opacity=".6"/></svg>
+        <div><h3>Chill out zone</h3><p>Beanbags, quiet music and nobody asking questions. Come here if it gets to be a lot.</p></div>
+      </a>
+      <a class="tile t2 wide" style="text-decoration:none">
+        <svg viewBox="0 0 100 100"><path d="M10 60 q 20 -40 40 0 t 40 0" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/></svg>
+        <div><h3>Try stuff</h3><p>Breathing, journaling, drawing, mindfulness. Quick things you can use on a bad day.</p></div>
+      </a>
+      <a class="tile t3" style="text-decoration:none">
+        <div><h3>Find help</h3><p>Local counsellors and services, face to face, with snacks.</p></div>
+      </a>
+      <a class="tile t4" style="text-decoration:none">
+        <div><h3>Real stories</h3><p>A panel of young people on what they wish others knew.</p></div>
+      </a>
+      <a class="tile t5" style="text-decoration:none">
+        <div><h3>Get moving</h3><p>Yoga and a casual pickup game. Zero skill needed.</p></div>
+      </a>
+      <a class="tile t6 wide" style="text-decoration:none">
+        <div><h3>Kind words wall</h3><p>Write an anonymous note for someone who needs it. Read a few while you're there.</p></div>
+      </a>
+      <a class="tile t5 wide" style="text-decoration:none">
+        <div><h3>Ask us anything</h3><p>Got a question about anxiety, stress, or how to help a mate? Ask a real person.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="myths">
+  <div class="w">
+    <h2>Myth or not?</h2>
+    <p class="intro">A few things people believe that just aren't true.</p>
+    <div class="myth"><div class="m"><small>Myth</small><b>"Only weak people ask for help."</b></div><div class="r"><small>Actually</small><b>It takes guts. Most people who reach out say they wish they'd done it sooner.</b></div></div>
+    <div class="myth"><div class="m"><small>Myth</small><b>"It's not serious enough to talk about."</b></div><div class="r"><small>Actually</small><b>If it's bugging you, it counts. You don't need to be at breaking point.</b></div></div>
+    <div class="myth"><div class="m"><small>Myth</small><b>"Everyone else is fine."</b></div><div class="r"><small>Actually</small><b>About 1 in 5 young people deal with a mental health issue in a given year. You're in good company.</b></div></div>
+  </div>
+</section>
+
+<section class="sched" id="day">
+  <div class="w">
+    <div>
+      <h2>How the day goes</h2>
+      <p>Rough plan. We'll lock it in closer to the day.</p>
+    </div>
+    <div>
+      <div class="row"><time>11:00</time><span>Doors open, grab a drink, say hi</span></div>
+      <div class="row"><time>11:30</time><span>Try-stuff stations and help booths open</span></div>
+      <div class="row"><time>12:30</time><span>Panel: "What I wish people knew"</span></div>
+      <div class="row"><time>1:15</time><span>Yoga + pickup game</span></div>
+      <div class="row"><time>2:15</time><span>Short talk: dealing with stress and anxiety</span></div>
+      <div class="row"><time>2:45</time><span>Kind words wall + wrap up</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="help" id="help">
+  <div class="w">
+    <div>
+      <p style="font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem">Don't wait for the event</p>
+      <div class="num">Call or<br>text 988</div>
+      <p style="margin-top:14px;font-weight:700">Free, private, 24/7. Real people, and you don't have to be in a crisis to use it.</p>
+    </div>
+    <ul>
+      <li>Text <b>HOME</b> to <b>741741</b> for the Crisis Text Line</li>
+      <li>In danger right now? Call <b>911</b></li>
+      <li class="todo">[Add your school counsellor / local clinic here]</li>
+    </ul>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="w">
+    <div>
+      <h2>Coming? Tell us.</h2>
+      <p>It helps us plan how much food to get. You can also just show up on the day, that's fine.</p>
+    </div>
+    <form id="f">
+      <div><label for="n">Your name</label><input id="n" required placeholder="First name is fine"></div>
+      <div><label for="e">Email</label><input id="e" type="email" required placeholder="you@email.com"></div>
+      <div><label for="w">I'm a…</label>
+        <select id="w"><option>Student</option><option>Parent / guardian</option><option>Teacher / coach</option><option>Someone from the community</option></select></div>
+      <div><label for="c">How many of you?</label><input id="c" type="number" min="1" max="10" value="1"></div>
+      <button class="btn" type="submit">I'm coming</button>
+      <div class="ok" id="ok">Nice one, you're on the list. See you there!</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <a class="logo" href="#">open up<i style="color:var(--yellow)">day</i></a>
+    <p>A community mental health awareness campaign.</p>
+    <p>Questions? <a class="todo" href="mailto:hello@example.com">hello@example.com</a></p>
+    <p style="margin-top:14px;opacity:.7">This event isn't a replacement for professional care. If you need help now, call or text 988 (U.S.).</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  // Demo only: hook up Formspree / Google Forms to actually collect RSVPs.
+  document.getElementById('ok').style.display='block';
+  this.reset();
+});
+</script>
+</body>
+</html>
